@@ -1,0 +1,41 @@
+body {
+    background-color: antiquewhite;
+    /* Das ist die Farbe der Seite */
+    font-size: 32px;
+    /* Das ist die Größe des Schriftes */
+    color: whitesmoke;
+    /* Farbe des Schriftes */
+    margin: 0;
+    /* Rahmenabstand von der Seite zu dem Schrift  */
+
+}
+
+.outer1 {
+    height: 200px;
+    /* Die Größe der Klasse .outer1 soll 200 pixel hoch sein */
+    background-color: blue;
+    /* Diese Klasse über 200pixel soll alles in blau erscheinen */
+    /* padding-top: 25px; */
+    /* Abstand von der oberen seite soll noch 25pixel von top nach unten sein */
+    /* padding-right: 25px; */
+    /* padding-bottom: 25px; */
+    /* padding-left: 25px; */
+    /* padding: 25px; alle seiten  */
+    /* padding: 25px 25px; vertikal und horizontal */
+    /* padding: 25px 25px 25px; oben rechts unten */
+    /* padding: 25px 25px 25px 25px; oben rechts unten links ***geht im Uhrzeigersinn */
+    margin: 0 auto 10px; /* auto bedeutet li u re wird automatisch angepasst */
+    width: 90%;
+    border-top: 10px solid black; /* das ist der schwarze Balken oben */
+}
+.outer2 {
+    height: 200px;
+    background-color: blueviolet;
+    margin-top: 20px;
+}
+.inner1 {
+    height: 100px;
+    background-color: red;
+    width: 80%; /* das sind 80% vom **outer1**  */
+    margin: 13px auto 0;
+}
