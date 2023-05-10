@@ -136,6 +136,8 @@ res = luckyNumber(123871); 1 + 2 + 3 == 8 + 7 + 1;
 // res = luckyNumber(1234321); 1 + 2 + 3 == 3 + 2 + 1;
 console.log(res ? 'Lucky' : 'Unlucky');
 
+
+
 function sumDigits(x) {
     // TODO
 }
@@ -144,16 +146,11 @@ function luckyNumber(x) {
     //TODO
 }
 
+banana();
+
 function banana() {
     let a = 'a';
     let b = 'b';
-    //TODO
-    return (a + b + + b + a).toLowerCase
+    return (b + a + (a * b) + a).toLowerCase();
     
-}
-// 'b', 'a' => banana;
-
-
-function add(a, b) {
-    return a + b;
 }
