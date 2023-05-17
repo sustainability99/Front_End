@@ -8,13 +8,16 @@ taskListUl.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
         e.target.parentElement.remove();
     }
+    if (e.target.checked){
+        
+    }
 });
 
 function addTask() {
     const taskName = task.value.trim();
     if (taskName) {
         const li = document.createElement('li');
-        li.innerHTML = `<span>${taskName}</span><button>Delete</button>`;
+        li.innerHTML = `<span>${taskName}</span><input type="checkbox"><button>Delete</button>`;
         taskListUl.appendChild(li);
     }
     task.value = '';
