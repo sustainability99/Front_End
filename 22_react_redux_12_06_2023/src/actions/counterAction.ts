@@ -1,32 +1,25 @@
-import { CounterAction } from "../actions/counterAction";
+import { Action } from 'redux';
 
-interface CounterState {
-    count: number;
+// описываем интерфейс action (действия) с состоянием внтури приложения
+export interface IncrementAction extends Action {
+    type: 'INCREMENT';
 }
 
-const initialState: CounterState = {
-    count: 0,
-};
+// описываем интерфейс action (действия) с состоянием внтури приложения
+export interface DecrementAction extends Action {
+    type: 'DECREMENT';
+}
 
-// reducer в качестве параметров принимает state и action
-const counterReducer = (
-    state = initialState,
-    action: CounterAction
-): CounterState => {
-    switch (action.type) {
-        case "INCREMENT":
-            return {
-                ...state,
-                count: state.count + 1,
-            };
-        case "DECREMENT":
-            return {
-                ...state,
-                count: state.count - 1,
-            };
-        default:
-            return state;
+export type CounterAction = IncrementAction | DecrementAction;
+
+export const increment = (): IncrementAction => {
+    return {
+        type: 'INCREMENT'
     }
-};
+}
 
-export default counterReducer;
+export const decrement = (): DecrementAction => {
+    return {
+        type: 'DECREMENT'
+    }
+}
