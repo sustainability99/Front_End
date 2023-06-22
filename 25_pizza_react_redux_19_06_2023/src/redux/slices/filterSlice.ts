@@ -53,3 +53,7 @@ export const filterSlice = createSlice({
         }
     }
 });
+
+export const { onClickCategory, onClickSort, setCurrentPage } = filterSlice.actions;
+
+export default filterSlice.reducer;
