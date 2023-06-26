@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface InterfaceItem {
-    id: number;
+    id: string;
     name: string;
     count: number;
     price: number;
@@ -9,7 +9,7 @@ interface InterfaceItem {
 
 interface ICartState {
     totalPrice: number;
-    items: InterfaceItem[];
+    items: any[];
 }
 
 const initialState: ICartState = {
@@ -29,10 +29,10 @@ const cartSlice = createSlice({
                 state.items.push({...action.payload, count: 1});
             };
             state.totalPrice = state.items.reduce(
-                (acc, item) => acc + item.price * item.count, 0
+                (acc: number, item: any) => acc + item.price * item.count, 0
             );
         },
-        incrementCount(state = initialState, action: PayloadAction<number>) {
+        incrementCount(state = initialState, action: PayloadAction<string>) {
             const findItem = state.items.find((item: InterfaceItem) => item.id === action.payload);
             if (findItem) {
                 findItem.count++;
@@ -41,7 +41,7 @@ const cartSlice = createSlice({
                 (acc, item) => acc + item.price * item.count, 0
             );
         },
-        decrementCount(state = initialState, action: PayloadAction<number>) {
+        decrementCount(state = initialState, action: PayloadAction<string>) {
             const findItem = state.items.find((item: InterfaceItem) => item.id === action.payload);
             if (findItem && findItem.count >= 1) {
                 findItem.count--;
@@ -54,7 +54,7 @@ const cartSlice = createSlice({
             state.items = [];
             state.totalPrice = 0;
         },
-        removeItem(state, action: PayloadAction<number>) {
+        removeItem(state, action: PayloadAction<string>) {
             state.items = state.items.filter(item => item.id !== action.payload);
             state.totalPrice = state.items.reduce(
                 (acc, item) => acc + item.price * item.count, 0
@@ -63,7 +63,9 @@ const cartSlice = createSlice({
     }
 });
 
-// export const selectCart = (state) => state.cart;
+export const selectCart = (state = initialState) => state;
+
+export const selectCartItemById = (id: string) => (state: any) => state.cart.items.find((item: InterfaceItem) => item.id === id)
 
 export const {
     addToCart,

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ISortingItem {
+export interface ISortingItem {
     name: string;
     sortProperty: string;
     order: string;
@@ -29,7 +29,7 @@ const initialState: IFilterState = {
     categoryName: 'Все',
 
     sortingItem: {
-        name: 'по-популярности',
+        name: 'популярности',
         sortProperty: 'rating',
         order: 'desc'
     },
@@ -53,6 +53,8 @@ export const filterSlice = createSlice({
         }
     }
 });
+
+export const selectFilter = (state: any) => state.filter;
 
 export const { onClickCategory, onClickSort, setCurrentPage } = filterSlice.actions;
 
